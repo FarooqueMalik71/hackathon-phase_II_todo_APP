@@ -23,7 +23,7 @@ export function TaskList({ tasks, onTaskToggle, onTaskEdit, onTaskDelete, loadin
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             transition={{ duration: 0.3 }}
-            className="bg-surface-50 dark:bg-dark-surface-800 rounded-lg shadow-sm p-4 border border-border animate-pulse"
+            className="bg-surface rounded-lg shadow-sm p-4 border border-border animate-pulse"
           >
             <div className="flex items-center space-x-4">
               <div className="h-6 w-6 rounded-full bg-border"></div>

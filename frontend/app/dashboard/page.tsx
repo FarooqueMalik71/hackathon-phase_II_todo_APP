@@ -216,7 +216,7 @@ export default function DashboardPage() {
 
           {/* Statistics Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-xl p-6 border border-blue-200 dark:border-blue-800">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-xl p-6 border border-border">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-blue-600 dark:text-blue-400">Total Tasks</p>
@@ -226,7 +226,7 @@ export default function DashboardPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 rounded-xl p-6 border border-green-200 dark:border-green-800">
+            <div className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 rounded-xl p-6 border border-border">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-green-600 dark:text-green-400">Completed</p>
@@ -236,7 +236,7 @@ export default function DashboardPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 dark:from-yellow-900/20 dark:to-yellow-800/20 rounded-xl p-6 border border-yellow-200 dark:border-yellow-800">
+            <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 dark:from-yellow-900/20 dark:to-yellow-800/20 rounded-xl p-6 border border-border">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-yellow-600 dark:text-yellow-400">Active</p>
@@ -246,7 +246,7 @@ export default function DashboardPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 rounded-xl p-6 border border-red-200 dark:border-red-800">
+            <div className="bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 rounded-xl p-6 border border-border">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-red-600 dark:text-red-400">Overdue</p>
@@ -270,14 +270,14 @@ export default function DashboardPage() {
               />
             </div>
 
-            <div className="flex border border-border rounded-lg overflow-hidden bg-surface-50 dark:bg-dark-surface-800">
+            <div className="flex border border-border rounded-lg overflow-hidden bg-surface">
               {(['all', 'active', 'completed'] as const).map((option) => (
                 <button
                   key={option}
                   className={`px-4 py-2 text-sm font-medium capitalize transition-colors ${
                     filter === option
                       ? 'bg-primary-500 text-white shadow-sm'
-                      : 'text-text-secondary hover:text-primary-500 hover:bg-surface-100 dark:hover:bg-dark-surface-700'
+                      : 'text-text-secondary hover:text-primary-500 hover:bg-surface'
                   }`}
                   onClick={() => setFilter(option)}
                 >
@@ -288,13 +288,13 @@ export default function DashboardPage() {
           </div>
 
           {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-3">
+            <div className="mb-6 p-4 bg-red-50 border border-border rounded-lg flex items-center gap-3">
               <AlertTriangleIcon className="h-5 w-5 text-red-500 flex-shrink-0" />
               <span className="text-red-700">{error}</span>
             </div>
           )}
 
-          <div className="bg-white dark:bg-dark-surface-900 rounded-xl shadow-sm border border-border p-6">
+          <div className="bg-surface rounded-xl shadow-sm border border-border p-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-semibold text-text-primary">
                 Tasks ({filteredTasks.length})
@@ -339,7 +339,7 @@ export default function DashboardPage() {
         />
 
         {/* Footer */}
-        <footer className="mt-16 py-8 border-t border-border bg-surface-50 dark:bg-dark-surface-900">
+        <footer className="mt-16 py-8 border-t border-border bg-surface">
           <div className="container text-center">
             <div className="flex items-center justify-center gap-2 mb-4">
               <div className="bg-primary-500 rounded-lg p-1">
@@ -350,7 +350,7 @@ export default function DashboardPage() {
               <span className="text-sm font-medium text-text-secondary">TaskFlow Pro</span>
             </div>
             <p className="text-xs text-text-secondary">
-              Press <kbd className="px-1 py-0.5 bg-surface-100 dark:bg-dark-surface-800 rounded text-xs">Ctrl+N</kbd> to quickly add a new task
+              Press <kbd className="px-1 py-0.5 bg-surface rounded text-xs">Ctrl+N</kbd> to quickly add a new task
             </p>
           </div>
         </footer>

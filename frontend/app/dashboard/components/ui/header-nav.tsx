@@ -72,7 +72,7 @@ export function HeaderNav({ user, currentPage, onLogout }: HeaderNavProps) {
           )}
 
           <button
-            className="md:hidden p-2 rounded-md hover:bg-surface-50 dark:hover:bg-dark-surface-800"
+            className="md:hidden p-2 rounded-md hover:bg-surface"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -88,7 +88,7 @@ export function HeaderNav({ user, currentPage, onLogout }: HeaderNavProps) {
             <nav className="flex flex-col gap-2">
               <a
                 href="/"
-                className={`p-2 rounded-md ${currentPage === 'dashboard' ? 'bg-surface-50 dark:bg-dark-surface-800 text-primary-500' : 'hover:bg-surface-50 dark:hover:bg-dark-surface-800'}`}
+                className={`p-2 rounded-md ${currentPage === 'dashboard' ? 'bg-surface text-primary-500' : 'hover:bg-surface'}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Dashboard
@@ -97,7 +97,7 @@ export function HeaderNav({ user, currentPage, onLogout }: HeaderNavProps) {
                 <>
                   <a
                     href="/profile"
-                    className={`p-2 rounded-md ${currentPage === 'profile' ? 'bg-surface-50 dark:bg-dark-surface-800 text-primary-500' : 'hover:bg-surface-50 dark:hover:bg-dark-surface-800'}`}
+                    className={`p-2 rounded-md ${currentPage === 'profile' ? 'bg-surface text-primary-500' : 'hover:bg-surface'}`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Profile

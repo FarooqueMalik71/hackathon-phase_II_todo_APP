@@ -22,9 +22,9 @@ export function TaskCard({ task, onToggle, onEdit, onDelete }: TaskCardProps) {
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.2 }}
       className={cn(
-        'bg-white dark:bg-dark-surface-900 rounded-xl shadow-sm border border-border p-5 hover:shadow-md transition-shadow duration-200',
+        'bg-surface rounded-xl shadow-sm border border-border p-5 hover:shadow-md transition-shadow duration-200',
         task.completed && 'opacity-75',
-        isOverdue && 'border-red-200 dark:border-red-800 bg-red-50/50 dark:bg-red-900/10'
+        isOverdue && 'border-red-200 bg-red-50/50 dark:border-red-800'
       )}
     >
       <div className="flex items-start gap-4">
@@ -61,9 +61,9 @@ export function TaskCard({ task, onToggle, onEdit, onDelete }: TaskCardProps) {
             {task.priority && (
               <span className={cn(
                 'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium flex-shrink-0',
-                task.priority === 'high' && 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300',
-                task.priority === 'medium' && 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300',
-                task.priority === 'low' && 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300',
+                task.priority === 'high' && 'bg-red-100 text-red-800 dark:bg-red-900/30 text-text-primary',
+                task.priority === 'medium' && 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 text-text-primary',
+                task.priority === 'low' && 'bg-green-100 text-green-800 dark:bg-green-900/30 text-text-primary',
               )}>
                 {task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}
               </span>

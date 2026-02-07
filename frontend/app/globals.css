@@ -2,79 +2,129 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* ===================================== */
+/* BASE */
+/* ===================================== */
 @layer base {
+
   :root {
-    /* Light Mode Colors */
-    --primary-500: #3B82F6;
-    --secondary-500: #6B7280;
-    --accent-500: #EF4444;
-    --background: #FFFFFF;
-    --surface-50: #F9FAFB;
-    --text-primary: #1F2937;
-    --text-secondary: #6B7280;
-    --border: #E5E7EB;
+    --background: #ffffff;
+    --surface: #f9fafb;
+
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+
+    --border: #e5e7eb;
   }
 
   .dark {
-    /* Dark Mode Colors - aligned with tailwind config */
-    --primary-400: #60A5FA;
-    --secondary-400: #9CA3AF;
-    --accent-400: #F87171;
-    --background: #111827;
-    --surface-800: #1F2937;
-    --text-primary: #F9FAFB;
-    --text-secondary: #D1D5DB;
-    --border: #374151;
-  }
+    --background: #0f172a;
+    --surface: #1e293b;
 
-  /* Typography Hierarchy */
-  h1 {
-    @apply text-2xl font-bold leading-tight;
-  }
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
 
-  h2 {
-    @apply text-xl font-semibold leading-snug;
-  }
-
-  h3 {
-    @apply text-lg font-semibold leading-relaxed;
-  }
-
-  h4 {
-    @apply text-base font-semibold leading-normal;
+    --border: #334155;
   }
 
   body {
-    @apply text-base font-normal text-text-primary bg-background leading-normal;
+    background-color: var(--background);
+    color: var(--text-primary);
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Base styles */
+  h1 { font-size: 28px; font-weight: 700; }
+  h2 { font-size: 22px; font-weight: 600; }
+  h3 { font-size: 18px; font-weight: 600; }
+
+  /* ⚠️ IMPORTANT: NO @apply with var() */
   * {
-    @apply border-border;
+    border-color: var(--border);
   }
 }
 
+
+
+/* ===================================== */
+/* COMPONENTS */
+/* ===================================== */
 @layer components {
+
+  /* ---------- BUTTON BASE ---------- */
+  .btn {
+    @apply inline-flex items-center justify-center
+    h-11 px-5 rounded-xl text-sm font-medium
+    transition-all duration-150 select-none
+    disabled:opacity-50 disabled:pointer-events-none;
+  }
+
   .btn-primary {
-    @apply bg-primary-500 hover:bg-primary-600 text-white font-medium h-10 px-4 rounded-md transition-colors duration-200;
+    @apply btn bg-blue-600 text-white
+    shadow-sm hover:shadow-md
+    hover:bg-blue-700 active:scale-95;
   }
 
   .btn-secondary {
-    @apply bg-secondary-500 hover:bg-secondary-600 text-white font-medium h-10 px-4 rounded-md transition-colors duration-200;
+    @apply btn bg-gray-200 text-gray-900
+    hover:bg-gray-300;
   }
 
   .btn-outline {
-    @apply border border-border hover:bg-surface-50 dark:hover:bg-dark-surface-800 text-text-primary font-medium h-10 px-4 rounded-md transition-colors duration-200;
+    @apply btn border bg-transparent
+    hover:bg-gray-100 dark:hover:bg-slate-700;
   }
 
+  .btn-danger {
+    @apply btn bg-red-600 text-white
+    hover:bg-red-700;
+  }
+
+
+
+  /* ---------- INPUT ---------- */
+.input {
+  @apply w-full h-11 px-4 rounded-xl border
+  bg-surface
+  text-[var(--text-primary)]
+  text-sm shadow-sm
+  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+  transition-all;
+}
+
+
+
+
+  /* ---------- CARD ---------- */
   .card {
-    @apply bg-surface-50 dark:bg-dark-surface-800 rounded-lg shadow-sm p-4 border border-border;
+    @apply rounded-2xl shadow-sm border p-5 transition-all hover:shadow-md;
+    background-color: var(--surface); /* pure css (safe) */
+  }
+
+
+
+  /* ---------- CONTAINER ---------- */
+  .container-app {
+    @apply max-w-5xl mx-auto px-6 py-8 space-y-6;
+  }
+
+
+
+  /* ---------- FORM ---------- */
+  .form-card {
+    @apply card w-full max-w-md mx-auto space-y-4;
   }
 }
 
+
+
+/* ===================================== */
+/* UTILITIES */
+/* ===================================== */
 @layer utilities {
-  /* Responsive utilities */
-  .container {
-    @apply w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  .center {
+    @apply flex items-center justify-center;
   }
 }
